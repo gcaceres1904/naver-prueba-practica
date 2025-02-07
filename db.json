@@ -1,0 +1,246 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "usuario1",
+      "email": "usuario1@correo.com",
+      "password": "password123"
+    },
+    {
+      "id": "2",
+      "username": "usuario2",
+      "email": "usuario2@correo.com",
+      "password": "password456"
+    }
+  ],
+  "quotes": [
+    {
+      "id": "1",
+      "date": "21-10-23",
+      "travelAgent": "SUN TRAVEL",
+      "userCreator": "MARCO ANDRADE",
+      "quote": "1256",
+      "travelCode": "ST-1256",
+      "reference": "ST-789-OK",
+      "days": "3D/2N",
+      "status": "CREATED"
+    },
+    {
+      "id": "2",
+      "date": "24-09-23",
+      "travelAgent": "ECU TRAVEL",
+      "userCreator": "JESICA ROMERO",
+      "quote": "1134",
+      "travelCode": "ET-1134",
+      "reference": "ET-1134-OK",
+      "days": "4D/3N",
+      "status": "CREATED"
+    },
+    {
+      "id": "3",
+      "date": "14-08-23",
+      "travelAgent": "PARADAISE",
+      "userCreator": "ANA GARCÍA",
+      "quote": "675",
+      "travelCode": "AN-675",
+      "reference": "AN-345-OK",
+      "days": "4D/3N",
+      "status": "CREATED"
+    },
+    {
+      "id": "4",
+      "date": "12-07-56",
+      "travelAgent": "JUAN MARÍN",
+      "userCreator": "JUAN MARÍN",
+      "quote": "978",
+      "travelCode": "JM-978",
+      "reference": "JM-700-OK",
+      "days": "5D/4N",
+      "status": "CREATED"
+    }
+  ],
+  "customerType": [
+    {
+      "id": 1,
+      "name": "Travel Agent"
+    },
+    {
+      "id": 2,
+      "name": "Tour Operator"
+    },
+    {
+      "id": 3,
+      "name": "Direct"
+    }
+  ],
+  "languages": [
+    {
+      "id": 1,
+      "name": "English"
+    },
+    {
+      "id": 2,
+      "name": "Español"
+    }
+  ],
+  "customers": [
+    {
+      "id": "93b0",
+      "customerTypeId": 1,
+      "cellPhoneNumber": "+593 987872662",
+      "languageId": "1",
+      "address": "Direccion",
+      "email": "email@email.com",
+      "age": 40,
+      "referencePassenger": "SMITH",
+      "travelCode": "SMITHX14-001",
+      "mainTourReference": {
+        "id": "1",
+        "date": "21-10-23",
+        "travelAgent": "SUN TRAVEL",
+        "userCreator": "MARCO ANDRADE",
+        "quote": "1256",
+        "travelCode": "ST-1256",
+        "reference": "ST-789-OK",
+        "days": "3D/2N",
+        "status": "CREATED"
+      },
+      "numberPassengers": "14",
+      "name": "Nombre",
+      "surname": "apellido",
+      "identificationNumber": "1723485114"
+    },
+    {
+      "id": "e075",
+      "customerTypeId": 1,
+      "cellPhoneNumber": "+593 987872662",
+      "languageId": "1",
+      "address": "Direccion",
+      "email": "email@email.com",
+      "age": 40,
+      "referencePassenger": "SMITH",
+      "travelCode": "SMITHX14-001",
+      "mainTourReference": {
+        "id": "1",
+        "date": "21-10-23",
+        "travelAgent": "SUN TRAVEL",
+        "userCreator": "MARCO ANDRADE",
+        "quote": "1256",
+        "travelCode": "ST-1256",
+        "reference": "ST-789-OK",
+        "days": "3D/2N",
+        "status": "CREATED"
+      },
+      "numberPassengers": "14",
+      "name": "Nombre",
+      "surname": "apellido",
+      "identificationNumber": "1723485114"
+    },
+    {
+      "id": "6d2b",
+      "customerTypeId": 1,
+      "cellPhoneNumber": "+593 987872662",
+      "languageId": "1",
+      "address": "Direccion",
+      "email": "email@email.com",
+      "age": 40,
+      "referencePassenger": "SMITH",
+      "travelCode": "SMITHX14-001",
+      "mainTourReference": {
+        "id": "1",
+        "date": "21-10-23",
+        "travelAgent": "SUN TRAVEL",
+        "userCreator": "MARCO ANDRADE",
+        "quote": "1256",
+        "travelCode": "ST-1256",
+        "reference": "ST-789-OK",
+        "days": "3D/2N",
+        "status": "CREATED"
+      },
+      "numberPassengers": "14",
+      "name": "Nombre",
+      "surname": "apellido",
+      "identificationNumber": "1723485114"
+    },
+    {
+      "id": "38b5",
+      "customerTypeId": 1,
+      "cellPhoneNumber": "+593 987872662",
+      "languageId": "1",
+      "address": "Direccion",
+      "email": "email@email.com",
+      "age": 40,
+      "referencePassenger": "SMITH",
+      "travelCode": "SMITHX14-001",
+      "mainTourReference": {
+        "id": "1",
+        "date": "21-10-23",
+        "travelAgent": "SUN TRAVEL",
+        "userCreator": "MARCO ANDRADE",
+        "quote": "1256",
+        "travelCode": "ST-1256",
+        "reference": "ST-789-OK",
+        "days": "3D/2N",
+        "status": "CREATED"
+      },
+      "numberPassengers": "14",
+      "name": "Nombre",
+      "surname": "apellido",
+      "identificationNumber": "1723485114"
+    },
+    {
+      "id": "d303",
+      "customerTypeId": 1,
+      "cellPhoneNumber": "+593 987872662",
+      "languageId": "1",
+      "address": "Direccion",
+      "email": "email@email.com",
+      "age": 40,
+      "referencePassenger": "SMITH",
+      "travelCode": "SMITHX14-001",
+      "mainTourReference": {
+        "id": "1",
+        "date": "21-10-23",
+        "travelAgent": "SUN TRAVEL",
+        "userCreator": "MARCO ANDRADE",
+        "quote": "1256",
+        "travelCode": "ST-1256",
+        "reference": "ST-789-OK",
+        "days": "3D/2N",
+        "status": "CREATED"
+      },
+      "numberPassengers": "14",
+      "name": "Nombre",
+      "surname": "apellido",
+      "identificationNumber": "1723485114"
+    },
+    {
+      "id": "5478",
+      "customerTypeId": 3,
+      "cellPhoneNumber": "+593 987872662",
+      "languageId": "1",
+      "address": "a",
+      "email": "email@email.com",
+      "age": 40,
+      "referencePassenger": "SMITH",
+      "travelCode": "SMITHX14-001",
+      "mainTourReference": {
+        "id": "1",
+        "date": "21-10-23",
+        "travelAgent": "SUN TRAVEL",
+        "userCreator": "MARCO ANDRADE",
+        "quote": "1256",
+        "travelCode": "ST-1256",
+        "reference": "ST-789-OK",
+        "days": "3D/2N",
+        "status": "CREATED"
+      },
+      "numberPassengers": "14",
+      "name": "Nombre",
+      "surname": "apellido",
+      "identificationNumber": "1723485114",
+      "companyName": "a",
+      "companyContact": "a"
+    }
+  ]
+}
