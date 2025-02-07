@@ -23,11 +23,13 @@ Sigue estos pasos para configurar y levantar el proyecto en tu máquina local.
    ```bash
    npx json-server db.json
 
-4. **Levanta el frontend**
+4. **Abre un nuevo terminal de CMD en el mismo directorio y levanta el frontend**
    ```bash
    npm run dev
    
 5. **Navega**
+
+La consola indicará en que puertos esta levantado el sistema, por defecto son [http://localhost:3000](http://localhost:3000) para backend y [http://localhost:5173](http://localhost:5173) para frontend
 
 Al ser un proyecto de prueba los usuarios y contraseñas están almacenados sin encriptar en el archivo db.json.
 
