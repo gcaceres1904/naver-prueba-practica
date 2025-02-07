@@ -1,7 +1,7 @@
 import { TextFieldElement } from "react-hook-form-mui";
 import PropTypes from "prop-types";
 
-export default function StyledTextFieldElement({ label, name, sx, props }) {
+export default function StyledTextFieldElement({ label, name, sx, ...props }) {
   return (
     <TextFieldElement
       label={label}
@@ -37,10 +37,10 @@ export default function StyledTextFieldElement({ label, name, sx, props }) {
         "& .MuiFormLabel-root": {
           color: "#474747",
           "&.Mui-focused, &.MuiFormLabel-filled": {
-            textAlign: "left", // Alinea a la izquierda cuando está enfocado o lleno
+            textAlign: "left",
           },
           "&:not(.Mui-focused):not(.MuiFormLabel-filled)": {
-            textAlign: "center", // Centra cuando no está enfocado o lleno
+            textAlign: "center",
             width: "100%",
           },
         },
@@ -52,7 +52,7 @@ export default function StyledTextFieldElement({ label, name, sx, props }) {
 }
 
 StyledTextFieldElement.propTypes = {
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
   name: PropTypes.string.isRequired,
   sx: PropTypes.object,
   props: PropTypes.object,

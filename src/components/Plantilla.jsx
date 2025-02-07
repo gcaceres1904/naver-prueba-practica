@@ -1,6 +1,5 @@
 import { Alert, Box, Container, Snackbar } from "@mui/material";
 import PropTypes from "prop-types";
-import { useState } from "react";
 
 const Plantilla = ({ children, open, setOpen, snackBarMessage, severity }) => {
   const handleClose = (event, reason) => {
@@ -37,7 +36,7 @@ const Plantilla = ({ children, open, setOpen, snackBarMessage, severity }) => {
           alignItems: "center",
           color: "white",
           fontSize: "24px",
-          border: "1px solid black",
+          border: "1px solid gold",
           borderRadius: "2rem",
         }}
       >

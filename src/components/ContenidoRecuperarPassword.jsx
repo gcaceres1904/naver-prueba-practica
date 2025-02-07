@@ -1,14 +1,13 @@
 import { FormContainer } from "react-hook-form-mui";
 import { Box, Button, Grid2, Typography } from "@mui/material";
 import StyledTextFieldElement from "./StyledTextFieldElement.jsx";
-import StyledPasswordElement from "./StyledPasswordElement.jsx";
 import { useForm } from "react-hook-form";
 import { getRequest } from "../httpService.js";
 import PropTypes from "prop-types";
-import { ContenidoRecuperarPassword } from "./ContenidoRecuperarPassword.jsx";
-import { ContenidoSelectOption } from "./ContenidoSelectOption.jsx";
+import { FirstPage } from "@mui/icons-material";
+import { ContenidoLanding } from "./ContenidoLanding.jsx";
 
-export const ContenidoLanding = ({
+export const ContenidoRecuperarPassword = ({
   setOpen,
   setSeverity,
   setSnackBarMessage,
@@ -18,43 +17,34 @@ export const ContenidoLanding = ({
   const formContext = useForm({ defaultValues: {} });
   const { handleSubmit, watch } = formContext;
 
-  const iniciarSesion = async () => {
+  const enviarRecuperacionPassword = async () => {
     try {
       const userRequest = await getRequest(
         baseURL,
-        `/users?username=${watch("username")}`,
+        watch("email")
+          ? `/users?email=${watch("email")}`
+          : `/users?username=${watch("username")}`,
       );
       setOpen(false);
-      if (userRequest?.data[0]?.password === watch("password")) {
+      if (userRequest?.data[0]) {
         setSeverity("success");
-        setSnackBarMessage(`Welcome ${watch("username")}`);
-        setElementoInterno(
-          <ContenidoSelectOption
-            setOpen={setOpen}
-            setSeverity={setSeverity}
-            setSnackBarMessage={setSnackBarMessage}
-            setElementoInterno={setElementoInterno}
-            baseURL={baseURL}
-          />,
-        );
+        setSnackBarMessage(`Please follow the instructions sent to your inbox`);
       } else {
         setSeverity("error");
-        setSnackBarMessage(
-          `Your password or username are not correct. Have you forgot your password?`,
-        );
+        setSnackBarMessage("No user found with that email or username");
       }
       setOpen(true);
     } catch (e) {
       console.error(e);
       setSeverity("error");
-      setSnackBarMessage(`Error during login`);
+      setSnackBarMessage(`Error sending password reset`);
       setOpen(true);
     }
   };
 
-  const recuperarPassword = async () => {
+  const regresarLogin = async () => {
     setElementoInterno(
-      <ContenidoRecuperarPassword
+      <ContenidoLanding
         setOpen={setOpen}
         setSeverity={setSeverity}
         setSnackBarMessage={setSnackBarMessage}
@@ -69,7 +59,7 @@ export const ContenidoLanding = ({
       <FormContainer
         mode={"onBlur"}
         formContext={formContext}
-        handleSubmit={handleSubmit(iniciarSesion)}
+        handleSubmit={handleSubmit(enviarRecuperacionPassword)}
       >
         <Grid2
           container
@@ -87,27 +77,61 @@ export const ContenidoLanding = ({
             sx={{
               display: "flex",
               alignItems: "center",
+              justifyContent: "left",
+            }}
+          >
+            <Button
+              variant="text"
+              color="white"
+              size="small"
+              startIcon={
+                <FirstPage fontSize={"large"} color={"white"}></FirstPage>
+              }
+              onClick={regresarLogin}
+            >
+              <Typography variant={"h6"}>LOG IN</Typography>
+            </Button>
+          </Grid2>
+          <Grid2
+            size={{ xs: 12, sm: 12 }}
+            sx={{
+              display: "flex",
+              alignItems: "center",
               justifyContent: "center",
             }}
           >
             <img
-              src={"/logo_art_experiences_travel.png"}
+              src={"/icono_ciberseguridad.png"}
               alt="Logo Art Travel"
-              width={"500dvw"}
+              width={"150dvw"}
             />
           </Grid2>
 
           <Grid2
             size={{ xs: 12, sm: 12 }}
             sx={{
-              marginTop: "2.5%",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
             }}
           >
-            <Typography variant="h4" fontWeight={"bold"}>
-              WELCOME!
+            <Typography variant="h6" fontWeight={"bold"}>
+              {"DON'T WORRY, IT HAPPENS TO THE BEST OF US"}
+            </Typography>
+          </Grid2>
+
+          <Grid2
+            size={{ xs: 12, sm: 12 }}
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Typography variant="body2" sx={{ width: "30%" }}>
+              {
+                "Fill in the box bellow, we wil sent you the steps to reset your password to the registered email."
+              }
             </Typography>
           </Grid2>
 
@@ -120,18 +144,31 @@ export const ContenidoLanding = ({
             }}
           >
             <StyledTextFieldElement
+              disabled={watch("email")}
               label={"Username"}
               name={"username"}
               sx={{ width: "40%" }}
               rules={{
                 validate: (value) => {
-                  if (!value) {
-                    return `Username is required`;
+                  if (!value && !watch("email")) {
+                    return `Email or username is required`;
                   }
                   return true;
                 },
               }}
             />
+          </Grid2>
+          <Grid2
+            size={{ xs: 12, sm: 12 }}
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Typography variant="h6" fontWeight={"bold"}>
+              -OR-
+            </Typography>
           </Grid2>
 
           <Grid2
@@ -142,37 +179,23 @@ export const ContenidoLanding = ({
               justifyContent: "center",
             }}
           >
-            <StyledPasswordElement
-              label={"Password"}
-              name={"password"}
+            <StyledTextFieldElement
+              disabled={watch("username")}
+              label={"Email"}
+              name={"email"}
               sx={{ width: "40%" }}
               rules={{
                 validate: (value) => {
-                  if (!value) {
-                    return `Password is required`;
+                  if (!value && !watch("username")) {
+                    return `Email or username is required`;
+                  }
+                  if (value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+                    return "Email is not valid";
                   }
                   return true;
                 },
               }}
             />
-          </Grid2>
-
-          <Grid2
-            size={{ xs: 12, sm: 12 }}
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <Typography
-              variant="body1"
-              color={"#707070"}
-              component={"a"}
-              onClick={recuperarPassword}
-            >
-              Forgot Password?
-            </Typography>
           </Grid2>
 
           <Grid2
@@ -194,7 +217,7 @@ export const ContenidoLanding = ({
               type="submit"
             >
               <Typography variant="h5" fontWeight={"bold"}>
-                SIGN IN
+                SEND
               </Typography>
             </Button>
           </Grid2>
@@ -203,7 +226,7 @@ export const ContenidoLanding = ({
     </Box>
   );
 };
-ContenidoLanding.propTypes = {
+ContenidoRecuperarPassword.propTypes = {
   setOpen: PropTypes.func,
   setSeverity: PropTypes.func,
   setSnackBarMessage: PropTypes.func,
